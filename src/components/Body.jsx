@@ -21,11 +21,16 @@ const Body = () => {
 
   return (
     <div className="flex flex-col justify-end min-h-screen p-3 font-sans text-black">
+      <div className="flex w-full">
+        <div className="w-[70%]">
+          <h1 className="text-[28px] font-bold mb-2">Welcome to PopX</h1>
+          <p className="text-lg mb-8 text-[#74777B]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+        </div>
+        <div className="w-[30%]"></div>
+      </div>
       <div className="max-w-lg">
-        <h1 className="text-4xl font-bold mb-4">Welcome to PopX</h1>
-        <p className="text-lg mb-8 text-[#74777B]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
         <div className="flex flex-col gap-4 mt-6">
           <button
             className="bg-[#6C25FF] text-white rounded-lg py-3 px-5 text-base cursor-pointer"
