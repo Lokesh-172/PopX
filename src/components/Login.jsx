@@ -6,7 +6,7 @@ import { useAuth } from "../context/authContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { userLoggedIn, currentuser} = useAuth();
+  const { userLoggedIn, currentuser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFormFilled, setIsFormFilled] = useState(false);
@@ -29,7 +29,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setError(""); // Clear previous errors
-    
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -39,16 +39,23 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Login error:", errorCode, errorMessage);
-        
+
         // Set user-friendly error message based on error code
-        if (errorCode === "auth/user-not-found" || errorCode === "auth/wrong-password") {
+        if (
+          errorCode === "auth/user-not-found" ||
+          errorCode === "auth/wrong-password"
+        ) {
           setError("Invalid email or password. Please try again.");
         } else if (errorCode === "auth/invalid-email") {
           setError("Please enter a valid email address.");
         } else if (errorCode === "auth/too-many-requests") {
-          setError("Too many unsuccessful login attempts. Please try again later.");
+          setError(
+            "Too many unsuccessful login attempts. Please try again later."
+          );
         } else if (errorCode === "auth/invalid-credential") {
-          setError("Invalid credentials. Please check your email and password.");
+          setError(
+            "Invalid credentials. Please check your email and password."
+          );
         } else {
           setError("An error occurred during login. Please try again.");
         }
@@ -57,17 +64,21 @@ const Login = () => {
 
   return (
     <div className="flex flex-col p-4 max-w-md mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-1">
-        Sign in to your PopX account
-      </h1>
-      <p className="text-gray-500 mb-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      </p>
+      <div className="flex">
+        <div className="w-[75%]">
+          <h1 className="text-3xl font-bold text-gray-900 mb-1">
+            Signin to your PopX account
+          </h1>
+          <p className="text-gray-500 mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          </p>
+        </div>
+        <div className="w-[25%]"></div>
+      </div>
 
       <form onSubmit={handleLogin} className="flex flex-col">
         {/* Display error message if it exists */}
-        
-        
+
         <div className="mb-4">
           <label className="block text-purple-500 mb-1">Email Address</label>
           <input
@@ -92,17 +103,19 @@ const Login = () => {
 
         <button
           type="submit"
-          className={`w-full ${isFormFilled ? "bg-purple-600" : "bg-gray-300"} text-white py-3 rounded-md transition-colors duration-300`}
+          className={`w-full ${
+            isFormFilled ? "bg-purple-600" : "bg-gray-300"
+          } text-white py-3 rounded-md transition-colors duration-300`}
           style={{ backgroundColor: isFormFilled ? "#6C25FF" : undefined }}
         >
           Login
         </button>
       </form>
       {error && (
-          <div className="mb-4 mt-4 p-3 bg-red-100 text-red-700 rounded-md border border-red-300">
-            {error}
-          </div>
-        )}
+        <div className="mb-4 mt-4 p-3 bg-red-100 text-red-700 rounded-md border border-red-300">
+          {error}
+        </div>
+      )}
     </div>
   );
 };

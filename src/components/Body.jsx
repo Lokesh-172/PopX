@@ -23,15 +23,15 @@ const Body = () => {
     <div className="flex flex-col justify-end min-h-screen p-3 font-sans text-black">
       <div className="flex w-full">
         <div className="w-[70%]">
-          <h1 className="text-[28px] font-bold mb-2">Welcome to PopX</h1>
-          <p className="text-lg mb-8 text-[#74777B]">
+          <h1 className="text-[28px] font-bold mb-1">Welcome to PopX</h1>
+          <p className="text-lg mb-4 text-[#74777B]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
         <div className="w-[30%]"></div>
       </div>
       <div className="max-w-lg">
-        <div className="flex flex-col gap-4 mt-6">
+        <div className="flex flex-col gap-2 mt-3">
           <button
             className="bg-[#6C25FF] text-white rounded-lg py-3 px-5 text-base cursor-pointer"
             onClick={handleSignUp}

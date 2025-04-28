@@ -37,9 +37,9 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="max-w-md bg-white border-gray-200 rounded-md">
-      <div className="p-4">
-        <div className="flex justify-between items-center mb-4">
+    <div className="max-w-md  border-gray-200 rounded-md">
+      <div className="">
+        <div className="flex bg-white justify-between items-center mb-4 p-4">
           <h2 className="text-lg font-medium text-gray-700">
             Account Settings
           </h2>
@@ -75,7 +75,8 @@ export default function UserProfile() {
         </div>
       </div>
 
-      <div className="border-dashed border-gray-500 border-1 mt-2"></div>
+      <div className="border-t border-dashed border-gray-300 mt-2 bg-gray-50"></div>
+      <div className="border-b border-dashed border-gray-300 mt-4 mb-2 bg-gray-50 h-[33rem]"></div>
     </div>
   );
 }
